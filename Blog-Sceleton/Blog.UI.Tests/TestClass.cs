@@ -18,6 +18,7 @@ namespace Blog.UI.Tests
             Assert.AreEqual("SOFTUNI BLOG", logo.Text);
         }
 
+        [Test]
         public void CheckURL()
         {
             IWebDriver driver = BrowserHost.Instance.Application.Browser;
