@@ -6,7 +6,7 @@ namespace Blog.UI.Tests
     class BrowserHost
     {
         public static readonly SelenoHost Instance = new SelenoHost();
-        public static readonly string RootUrl;
+        public static readonly string RootUrl = @"http://localhost:60634/";
 
         static BrowserHost()
         {
@@ -14,7 +14,7 @@ namespace Blog.UI.Tests
             //Instance.Run("Blog", 10639, w => w.WithRemoteWebDriver(() => new ChromeDriver()));
 
             //RootUrl = Instance.Application.Browser.Url;
-            RootUrl = @"http://localhost:60634/";
+            
 
 
         }
