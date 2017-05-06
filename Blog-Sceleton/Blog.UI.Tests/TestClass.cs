@@ -15,18 +15,18 @@ namespace Blog.UI.Tests
             driver.Navigate().GoToUrl(BrowserHost.RootUrl);
             var logo = driver.FindElement(By.XPath("/html/body/div[1]/div/div[1]/a"));
 
-            Assert.AreEqual("SOFTUNI BLOG", logo.Text);
+            Assert.isTrue("SOFTUNI BLOG", logo.Displayed);
         }
 
         [Test]
-        public void CheckBlogPostText()
+        public void CheckYearText()
         {
             IWebDriver driver = BrowserHost.Instance.Application.Browser;
 
             driver.Navigate().GoToUrl(BrowserHost.RootUrl);
-            var post = driver.FindElement(By.PartialLinkText("Hello World"));
+            var year = driver.FindElement(By.XPath("/html/body/div[2]/footer/p"));
 
-            Assert.AreEqual("Hello World", post.Text);
+            Assert.IsTrue("2017", year.Displayed);
         }
 
         [Test]
