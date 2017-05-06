@@ -7,15 +7,16 @@ namespace Blog.UI.Tests
     {
         public static readonly SelenoHost Instance = new SelenoHost();
         //public static readonly string RootUrl;
-        private static readonly string RootUrl = "http://localhost:60634";
 
         static BrowserHost()
         {
-            //Instance.Run("Blog", 60639);
-            Instance.Run("Blog", 60634, w => w.WithRemoteWebDriver(() => new ChromeDriver()));
+            Instance.Run("Blog", 60639, config => config.WithRouteConfig(RouteConfig.RegisterRoutes));
+            //Instance.Run("Blog", 60639, w => w.WithRemoteWebDriver(() => new ChromeDriver()));
 
-           // RootUrl = Instance.Application.Browser.Url;
-            
+            //RootUrl = Instance.Application.Browser.Url;
+            //RootUrl = @"http://localhost:60634/";
+
+
         }
     }
 }
