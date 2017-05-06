@@ -1,5 +1,7 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using System;
 
 namespace Blog.UI.Tests
 {
@@ -10,12 +12,12 @@ namespace Blog.UI.Tests
         public void ShouldLoadBlog()
         {
             IWebDriver driver = BrowserHost.Instance.Application.Browser;
-            // WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(180));
+             WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
 
             driver.Navigate().GoToUrl(BrowserHost.RootUrl);
-            var logo = driver.FindElement(By.XPath("/html/body/div[1]/div/div[1]/a"));
-
-            Assert.IsEmpty(logo.Text);
+            //var logo = driver.FindElement(By.ClassName("navbar-brand"));
+            var logo = wait.Until(w =>w.FindElement(By.ClassName("navbar-brand")));
+            Assert.AreEqual("SOFTUNI BLOG", logo.Text);
         }
 
         [Test]
