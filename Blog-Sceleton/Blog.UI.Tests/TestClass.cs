@@ -17,5 +17,15 @@ namespace Blog.UI.Tests
 
             Assert.AreEqual("SOFTUNI BLOG", logo.Text);
         }
+
+        public void CheckURL()
+        {
+            IWebDriver driver = BrowserHost.Instance.Application.Browser;
+
+            driver.Navigate().GoToUrl(BrowserHost.RootUrl);
+            var browserUrl = driver.Url;
+
+            Assert.AreEqual(@"http://localhost:60634/", browserUrl);
+        }
     }
 }
