@@ -15,7 +15,7 @@ namespace Blog.UI.Tests
             driver.Navigate().GoToUrl(BrowserHost.RootUrl);
             var logo = driver.FindElement(By.XPath("/html/body/div[1]/div/div[1]/a"));
 
-            Assert.isTrue("SOFTUNI BLOG", logo.Displayed);
+            Assert.IsEmpty(logo.Text);
         }
 
         [Test]
@@ -26,7 +26,7 @@ namespace Blog.UI.Tests
             driver.Navigate().GoToUrl(BrowserHost.RootUrl);
             var year = driver.FindElement(By.XPath("/html/body/div[2]/footer/p"));
 
-            Assert.IsTrue("2017", year.Displayed);
+            Assert.AreEqual("2017", year.Text);
         }
 
         [Test]
