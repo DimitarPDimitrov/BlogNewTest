@@ -6,15 +6,15 @@ namespace Blog.UI.Tests
     class BrowserHost
     {
         public static readonly SelenoHost Instance = new SelenoHost();
-        //public static readonly string RootUrl;
+        public static readonly string RootUrl;
 
         static BrowserHost()
         {
-            Instance.Run("Blog", 60639, config => config.WithRouteConfig(RouteConfig.RegisterRoutes));
-            //Instance.Run("Blog", 60639, w => w.WithRemoteWebDriver(() => new ChromeDriver()));
+            //Instance.Run("Blog", 60639, c => c.WithRouteConfig(RouteConfig.RegisterRoutes));
+            Instance.Run("Blog", 10639, w => w.WithRemoteWebDriver(() => new ChromeDriver()));
 
             //RootUrl = Instance.Application.Browser.Url;
-            //RootUrl = @"http://localhost:60634/";
+            RootUrl = @"http://localhost:60634/";
 
 
         }
