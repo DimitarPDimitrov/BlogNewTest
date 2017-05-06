@@ -24,9 +24,9 @@ namespace Blog.UI.Tests
             IWebDriver driver = BrowserHost.Instance.Application.Browser;
 
             driver.Navigate().GoToUrl(BrowserHost.RootUrl);
-            var post = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/article/header/h2"));
+            var post = driver.FindElement(By.PartialLinkText("Hello World"));
 
-            Assert.AreEqual(@"Hello World", post.Text);
+            Assert.AreEqual("Hello World", post.Text);
         }
 
         [Test]
