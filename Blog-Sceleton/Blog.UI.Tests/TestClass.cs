@@ -16,8 +16,8 @@ namespace Blog.UI.Tests
 
             driver.Navigate().GoToUrl(BrowserHost.RootUrl);
             //var logo = driver.FindElement(By.ClassName("navbar-brand"));
-            var logo = wait.Until(w =>w.FindElement(By.ClassName("navbar-brand")));
-            Assert.AreEqual("SOFTUNI BLOG", logo.Text);
+            var title = wait.Until(w =>w.FindElement(By.TagName("title")));
+            Assert.AreEqual("List - My ASP.NET Application", title.Text);
         }
 
         [Test]
@@ -37,9 +37,9 @@ namespace Blog.UI.Tests
             IWebDriver driver = BrowserHost.Instance.Application.Browser;
 
             driver.Navigate().GoToUrl(BrowserHost.RootUrl);
-            var browserUrl = driver.Url;
+            var browserUrl = driver.Title;
 
-            Assert.AreEqual(@"http://localhost:60634/", browserUrl);
+            Assert.AreEqual(@"http://localhost:60634/Article/List", browserUrl);
         }
     }
 }
