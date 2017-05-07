@@ -12,11 +12,11 @@ namespace Blog.UI.Tests
         public void ShouldLoadBlog()
         {
             IWebDriver driver = BrowserHost.Instance.Application.Browser;
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
+           // WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
 
            // driver.Navigate().GoToUrl(BrowserHost.RootUrl);
-            //var title = driver.FindElement(By.TagName("title"));
-            var title = wait.Until(w =>w.FindElement(By.TagName("title")));
+            var title = driver.FindElement(By.TagName("title"));
+           // var title = wait.Until(w =>w.FindElement(By.TagName("title")));
             Assert.AreEqual("List - My ASP.NET Application", title.Text);
         }
 
