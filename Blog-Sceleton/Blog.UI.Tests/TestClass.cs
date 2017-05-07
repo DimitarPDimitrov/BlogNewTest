@@ -28,7 +28,7 @@ namespace Blog.UI.Tests
            // driver.Navigate().GoToUrl(BrowserHost.RootUrl);
             var year = driver.FindElement(By.XPath("/html/body/div[2]/footer/p"));
 
-            Assert.AreEqual("2017", year.Text);
+            Assert.AreEqual("c 2017 - SoftUni Blog", year.Text);
         }
 
         [Test]
@@ -37,7 +37,7 @@ namespace Blog.UI.Tests
             IWebDriver driver = BrowserHost.Instance.Application.Browser;
 
           //  driver.Navigate().GoToUrl(BrowserHost.RootUrl);
-            var browserUrl = driver.Title;
+            var browserUrl = driver.Url;
 
             Assert.AreEqual(@"http://localhost:60634/Article/List", browserUrl);
         }
