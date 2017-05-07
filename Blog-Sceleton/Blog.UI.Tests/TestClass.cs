@@ -21,14 +21,14 @@ namespace Blog.UI.Tests
         }
 
         [Test]
-        public void CheckYearText()
+        public void CheckLogo()
         {
             IWebDriver driver = BrowserHost.Instance.Application.Browser;
             
            // driver.Navigate().GoToUrl(BrowserHost.RootUrl);
-            var year = driver.FindElement(By.XPath("/html/body/div[2]/footer/p"));
+            var year = driver.FindElement(By.ClassName("navbar-brand"));
 
-            Assert.AreEqual("c 2017 - SoftUni Blog", year.Text);
+            Assert.AreEqual("SOFTUNI BLOG", year.Text);
         }
 
         [Test]
@@ -39,7 +39,7 @@ namespace Blog.UI.Tests
           //  driver.Navigate().GoToUrl(BrowserHost.RootUrl);
             var browserUrl = driver.Url;
 
-            Assert.AreEqual(@"http://localhost:60634/Article/List", browserUrl);
+            Assert.AreEqual(@"http://localhost:10639/Article/List", browserUrl);
         }
     }
 }
