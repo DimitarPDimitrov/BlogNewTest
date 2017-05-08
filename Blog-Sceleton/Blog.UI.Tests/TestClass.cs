@@ -14,7 +14,7 @@ namespace Blog.UI.Tests
             IWebDriver driver = BrowserHost.Instance.Application.Browser;
            // WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(60));
 
-           // driver.Navigate().GoToUrl(BrowserHost.RootUrl);
+            driver.Navigate().GoToUrl(BrowserHost.RootUrl);
             var title = driver.FindElement(By.TagName("title"));
            // var title = wait.Until(w =>w.FindElement(By.TagName("title")));
             Assert.AreEqual("List - My ASP.NET Application", title.Text);
@@ -25,7 +25,7 @@ namespace Blog.UI.Tests
         {
             IWebDriver driver = BrowserHost.Instance.Application.Browser;
             
-           // driver.Navigate().GoToUrl(BrowserHost.RootUrl);
+            driver.Navigate().GoToUrl(BrowserHost.RootUrl);
             var year = driver.FindElement(By.ClassName("navbar-brand"));
 
             Assert.AreEqual("SOFTUNI BLOG", year.Text);
@@ -36,7 +36,7 @@ namespace Blog.UI.Tests
         {
             IWebDriver driver = BrowserHost.Instance.Application.Browser;
 
-          //  driver.Navigate().GoToUrl(BrowserHost.RootUrl);
+            driver.Navigate().GoToUrl(BrowserHost.RootUrl);
             var browserUrl = driver.Url;
 
             Assert.AreEqual(@"http://localhost:10639/Article/List", browserUrl);
@@ -47,12 +47,12 @@ namespace Blog.UI.Tests
         {
             IWebDriver driver = BrowserHost.Instance.Application.Browser;
 
-            //  driver.Navigate().GoToUrl(BrowserHost.RootUrl);
+            driver.Navigate().GoToUrl(BrowserHost.RootUrl);
             var browserUrl = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[2]/article/header/h2/a"));
             browserUrl.Click();
-            var postHead = driver.FindElement(By.ClassName("btn btn-success btn-xs"));
+            var headPost = driver.FindElement(By.XPath("/html/body/div[2]/div/article/footer/a[1]"));
 
-            Assert.AreEqual(@"Edit", postHead.Text);
+            Assert.AreEqual(@"Edit", headPost.Text);
         }
     }
 }
